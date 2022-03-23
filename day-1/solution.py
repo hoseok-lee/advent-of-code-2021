@@ -45,6 +45,7 @@ print(increases)
     
     Convolve first and then perform the operation.
 '''
+
 convolved = np.convolve(
     np.array(measurements), 
     np.ones(3), 

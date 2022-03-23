@@ -10,7 +10,7 @@ import numpy as np
 with open("instructions.txt", "r") as f:
     raw_lines = f.read()
 
-# Split by new line
+# Split by new line and direction and step
 instructions = [
     [line.split()[0], int(line.split()[1])]
 
@@ -53,6 +53,7 @@ print(np.prod(np.sum(positions, axis=0)))
     work, since it assumes that there are only cardinal directions to work with.
     There is now a cumulative variable to be kept.
 '''
+
 aim = 0
 x, y = 0, 0
 
