@@ -24,7 +24,8 @@ measurements = list(map(
 
     Complexity: O(n)
     
-    Simply compare the current number and the next to count the number of increases.
+    Simply compare the current number and the next to count the number of 
+    increases.
 '''
 '''
 increases = sum([
@@ -46,12 +47,14 @@ print(increases)
     Convolve first and then perform the operation.
 '''
 
+# Convolution calculates the sum of three consecutive numbers
 convolved = np.convolve(
     np.array(measurements), 
     np.ones(3), 
     mode='valid'
 )
 
+# Perform the same operation as part 1
 increases = sum([
     int(convolved[i] < convolved[i + 1])
 

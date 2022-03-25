@@ -27,6 +27,10 @@ instructions = [
     Iterate through the instructions and keep track of current coordinates.
 '''
 '''
+# Positions is an array of horizontal distance and depth coordinates
+# Horizontal distance is only affected by "forward" commands, and thus a boolean
+# is sufficient, septh coordinates can be coded with a dictionary of directions, 
+# where the "forward" command does not affect anything
 positions = np.array([
     [
         step * int(direction == "forward"), 
@@ -40,6 +44,8 @@ positions = np.array([
     for direction, step in instructions
 ])
 
+# Sum all of the coordinate changes for the final coordinate (assuming the ship
+# begins at [0, 0]) and multiply the coordinates
 print(np.prod(np.sum(positions, axis=0)))
 '''
 
@@ -57,9 +63,12 @@ print(np.prod(np.sum(positions, axis=0)))
 aim = 0
 x, y = 0, 0
 
+# Iterate through the instructions
 for direction, step in instructions:
+    # Aim is only changed by "down" and "up"
     aim += step * (1 if (direction == "down") else -1 if (direction == "up") else 0)
     
+    # Take a step based on the aim and step
     if direction == "forward":
         x += step
         y += step * aim
