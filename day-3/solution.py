@@ -100,6 +100,7 @@ def retrieve_rates (replacement, most=True):
 
 
 
+# Call the functions with respective arguments
 oxygen_gen_rate = retrieve_rates('1', True)
 co2_scrub_rate = retrieve_rates('0', False)
 
